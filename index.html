@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Trivedi Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+         :root {
+            --bg: #dbeafe;
+            --bg2: #bfdbfe;
+            --text: #1e3a5f;
+            --text-light: #3b6fa0;
+            --glass: rgba(255, 255, 255, 0.55);
+            --glass-hover: rgba(255, 255, 255, 0.85);
+            --accent: #2563eb;
+            --accent2: #1d4ed8;
+            --white: #ffffff;
+            --card-border: rgba(37, 99, 235, 0.18);
+            --shadow: 0 4px 24px rgba(37, 99, 235, 0.10);
+            --shadow-hover: 0 8px 40px rgba(37, 99, 235, 0.22);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 60%, #eff6ff 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        /* Header */
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 48px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.10);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 16px rgba(37, 99, 235, 0.07);
+        }
+        
+        header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--accent);
+        }
+        
+        nav a {
+            margin: 0 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        /* Hero */
+        
+        .hero {
+            text-align: center;
+            padding: 110px 20px 80px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            min-height: 1.8em;
+        }
+        
+        .typing {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        /* Section headings */
+        
+        h2.section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            border-left: 4px solid var(--accent);
+            padding-left: 14px;
+            margin-bottom: 28px;
+        }
+        /* Grid */
+        
+        .container {
+            max-width: 1060px;
+            margin: auto;
+            padding: 50px 24px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        /* Card */
+        
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 18px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            background: var(--glass-hover);
+        }
+        
+        .card h3 {
+            margin: 8px 0;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        
+        .card p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin: 6px 0;
+            line-height: 1.6;
+        }
+        
+        .card .tags {
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .card .tag {
+            font-size: 0.7rem;
+            background: rgba(37, 99, 235, 0.10);
+            color: var(--accent);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            border-radius: 20px;
+            padding: 3px 11px;
+            font-weight: 500;
+        }
+        
+        .card .metrics {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+        /* Buttons */
+        
+        .btn {
+            padding: 9px 16px;
+            border-radius: 9px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+        
+        .linkedin {
+            background: #0077b5;
+        }
+        
+        .gmail {
+            background: #ea4335;
+        }
+        
+        .live {
+            background: var(--accent);
+        }
+        
+        .github-btn {
+            background: #24292e;
+        }
+        /* Badge */
+        
+        .badge {
+            height: 34px;
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+        /* Contact section */
+        
+        #contact.container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #contact .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        /* Footer */
+        
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(37, 99, 235, 0.10);
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>PORTFOLIO</h2>
+        <nav>
+            <a href="#Resume">Resume</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, I'm Ayush Trivedi 👋</h1>
+        <p>I am a <span class="typing"></span></p>
+    </section>
+
+    <!-- RESUME -->
+    <section id="Resume" class="container">
+        <h2 class="section-title">Resume</h2>
+        <div class="grid">
+            <div class="card">
+                <p>This is my Resume. Click on the "View" button to download it.</p>
+                <a href="Ayush_Trivedi_Resume_Final.pdf" target="_blank" class="btn live">View</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>📊 Amazon Products Sales Analysis</h3>
+                <p>Power BI dashboard providing a comprehensive view of Amazon product sales — revenue trends, category breakdowns, and top-performing products.</p>
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Analytics</span>
+                    <span class="tag">Excel</span>
+                </div>
+                <div class="metrics">
+                    📈 YTD Sales: $2.18M &nbsp;|&nbsp; 📦 Products Sold: 27.75K<br> ⭐ YTD Reviews: 19.42M &nbsp;|&nbsp; 🗂️ 6 Categories Tracked
+                </div>
+                <a href="https://github.com/ayushtrivedi205/Amazon-Products-Sales-Analysis" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <img class="badge" src="simplilearn.png" alt="Simplilearn">
+                <h3>Machine Learning Using Python</h3>
+                <p>Simplilearn | Issued: April 17, 2026</p>
+                <a href="ml-python.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                <h3>Google Analytics Certification</h3>
+                <p>Google | Valid till April 2027</p>
+                <a href="google-analytics.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="claude.png" alt="Anthropic Claude">
+                <h3>ANTHROPIC | CLAUDE</h3>
+                <p>Claude 101</p>
+                <a href="CLAUDE1.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="claude.png" alt="Anthropic Claude">
+                <h3>ANTHROPIC | CLAUDE</h3>
+                <p>Claude Advanced</p>
+                <a href="CLAUDE2.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="claude.png" alt="Anthropic Claude">
+                <h3>ANTHROPIC | CLAUDE</h3>
+                <p>Introduction to Claude Cowork</p>
+                <a href="CLAUDE3.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="claude.png" alt="Anthropic Claude">
+                <h3>ANTHROPIC | CLAUDE</h3>
+                <p>Claude Code in Action</p>
+                <a href="Claude4.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                <h3>SQL for Data Science</h3>
+                <p>IBM | Issued: April 2026</p>
+                <a href="SQL IBM.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                <h3>IBM DATA FUNDAMENTALS</h3>
+                <p>IBM | Issued: April 2026</p>
+                <a href="IBMDesign20260418-31-mo4ybe.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                <h3>DATA VISUALIZATION WITH PYTHON</h3>
+                <p>IBM | Issued: July 2024</p>
+                <a href="pythonayush.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud">
+                <h3>Generative AI - Google Cloud</h3>
+                <p>Google Cloud | Issued: April 2026</p>
+                <a href="Gen AI Google Cloud.pdf" target="_blank" class="btn live">View</a>
+            </div>
+            <div class="card">
+                <img class="badge" src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+                <h3>EXPLORING AI</h3>
+                <p>IBM | Issued: May 2026</p>
+                <a href="AI Skills Build IBM.pdf" target="_blank" class="btn live">View</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/ayushtrivedi205?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="btn linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:ayushtrivedi205@gmail.com" class="btn gmail">
+                <i class="fas fa-envelope"></i> Gmail
+            </a>
+            <a href="https://github.com/ayushtrivedi205" target="_blank" class="btn github-btn">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Ayush Trivedi</p>
+    </footer>
+
+    <script>
+        const text = ["B.Tech CSE DATA SCIENCE Student", "DATA ANALYTICS & AI/ML ENTHUSIAST", "Developer"];
+        let i = 0,
+            j = 0,
+            isDeleting = false;
+
+        function type() {
+            const current = text[i];
+            document.querySelector(".typing").textContent = current.substring(0, j);
+            if (!isDeleting && j < current.length) j++;
+            else if (isDeleting && j > 0) j--;
+            else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) i = (i + 1) % text.length;
+            }
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+        type();
+    </script>
+</body>
+
+</html>
